@@ -1,0 +1,14 @@
+molecule_id,smiles,category,molecular_weight
+ethanol,CCO,alcohol,46.07
+propanol,CCCO,alcohol,60.10
+butanol,CCCCO,alcohol,74.12
+acetone,CC(=O)C,ketone,58.08
+acetic_acid,CC(=O)O,acid,60.05
+ethyl_acetate,CCOC(C)=O,ester,88.11
+benzene,c1ccccc1,aromatic,78.11
+toluene,Cc1ccccc1,aromatic,92.14
+phenol,Oc1ccccc1,aromatic,94.11
+aniline,Nc1ccccc1,aromatic,93.13
+caffeine,CN1C(=O)C2=C(C1=O)N(C=N2)C,heterocycle,194.19
+invalid,not_a_smiles,invalid,0.0
+duplicate_ethanol,CCO,duplicate,46.07
