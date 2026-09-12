@@ -3,6 +3,10 @@ __pycache__/
 .pytest_cache/
 .streamlit/
 .venv/
+.molecular-knn-env/
+.local-tools/
+.local-temp/
+outputs/
 dist/
 build/
 *.egg-info/
