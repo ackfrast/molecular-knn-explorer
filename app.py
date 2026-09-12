@@ -7,7 +7,7 @@ import streamlit as st
 from src.data_loader import read_csv, validate_smiles
 from src.fingerprints import generate_fingerprints
 from src.neighbors import find_neighbors, mean_knn_distance
-from src.visualization import render_molecule_card
+from src.visualization import render_molecule_card, render_selected_molecule_card
 
 
 DEFAULT_RADIUS = 2
@@ -80,9 +80,13 @@ neighbors = find_neighbors(fingerprints, valid, selected_position, int(k))
 selected = valid.iloc[selected_position]
 
 st.subheader("Selected molecule")
-st.code(str(selected[smiles_column]), language=None)
-st.caption(f"Valid molecules: {len(valid)} | Search excludes the selected row itself.")
-st.metric("Mean kNN distance", f"{mean_knn_distance(neighbors):.4f}" if not neighbors.empty else "n/a")
+selected_columns = st.columns([2, 1], gap="medium")
+with selected_columns[0]:
+    render_selected_molecule_card(selected, smiles_column, molecule_id_column, property_columns)
+with selected_columns[1]:
+    st.metric("Mean kNN distance", f"{mean_knn_distance(neighbors):.4f}" if not neighbors.empty else "n/a")
+    st.caption(f"Valid molecules: {len(valid)}")
+    st.caption("The selected molecule is the query reference and is excluded from neighbor search.")
 
 if neighbors.empty:
     st.info("No other valid molecules are available for neighbor search.")

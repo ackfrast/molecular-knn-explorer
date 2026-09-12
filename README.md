@@ -23,7 +23,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\run-local.ps1 -NoBrowser
 
 If startup fails, inspect `.local-temp\*.log` and rerun the installer if the environment is incomplete. The installer and launcher scripts are project-local; they do not share the existing `chemprop`, `chemprop2`, `molML`, or `molml` environments.
 
-This first iteration supports CSV upload, SMILES validation, invalid/duplicate reporting, manual `k`, self-excluding neighbor search, structure cards, selected dataset properties, and mean kNN distance. It intentionally does not include model prediction, uncertainty quantification, OOD classification, train/test comparison, or automatic `k` recommendation.
+This first iteration supports CSV upload, SMILES validation, invalid/duplicate reporting, manual `k`, self-excluding neighbor search, a full selected-molecule query card with RDKit 2D structure, selected dataset properties, neighbor structure cards, and mean kNN distance. The query card is shown above the neighbors and does not assign neighbor-only rank or Tanimoto metrics to the selected molecule. It intentionally does not include model prediction, uncertainty quantification, OOD classification, train/test comparison, or automatic `k` recommendation.
 
 ## Setup
 
